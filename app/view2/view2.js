@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', [])
+angular.module('scabbit.view2', [])
 
 .controller('View2Ctrl', [function() {
 

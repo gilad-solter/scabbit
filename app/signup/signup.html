@@ -1,16 +1,18 @@
 
-<div class="login login-layout" layout="row" layout-padding ng-cloak layout-margin layout-align="center center" >
-    <md-whiteframe class="md-whiteframe-2dp" flex-xs="85" flex-gt-xs="75" flex-gt-sm="65" layout="column" layout-align="center center">
-        <h2 class="md-display-1" dir="ltr">Welcome Back!</h2>
-        <h4 class="md-subhead">רק כמה פרטים...</h4>
+<div class="login login-layout" layout="row" ng-cloak layout-align="center top">
+    <md-whiteframe class="md-whiteframe-2dp" flex-xs="85" flex-gt-xs="75" flex-gt-sm="65" layout="column"
+                   layout-align="center center">
+        <h2 class="md-display-1">פעם ראשונה בים?</h2>
+        <h4 class="md-subhead">בואו נכניס אותך לעניינים</h4>
 
         <md-content>
-            <form name="loginForm" layout-margin>
+            <form name="signupForm" layout-margin novalidate>
+
                 <md-input-container class="md-block" layout-padding>
                     <label>אי-מייל</label>
                     <input required type="email" name="email" ng-model="email"
                            minlength="5" maxlength="100" ng-pattern="/^.+@.+\..+$/" title="אימייל"/>
-                    <div ng-messages="loginForm.email.$error" role="alert">
+                    <div ng-messages="signupForm.email.$error" role="alert">
                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                             כתובת האי-מייל צריכה להכיל בין 5 ל100 תווים ולהיראות כמו אי-מייל
                         </div>
@@ -21,16 +23,28 @@
                     <label>סיסמא</label>
                     <input required type="password" id="password" name="password" ng-model="password"
                            ng-minlength="6" ng-maxlength="50" title="סיסמא">
-                    <div ng-messages="loginForm.password.$error" role="alert">
+                    <div ng-messages="signupForm.password.$error" role="alert">
                         <div ng-message-exp="['required', 'minlength', 'maxlength']">
                             הסיסמא צריכה להכיל לפחות 6 תווים
                         </div>
                     </div>
                 </md-input-container>
 
+                <md-input-container class="md-block" layout-padding>
+                    <label>אימות סיסמא</label>
+                    <input required type="password" name="passwordVer" ng-model="passwordVer"
+                           ng-pattern="signup.password" title="סיסמא">
+                    <div ng-messages="signupForm.passwordVer.$error" role="alert">
+                        <div ng-message-exp="['required', 'pattern']">
+                            על הסיסמאות להיות זהות, נו באמת
+                        </div>
+                    </div>
+
+                </md-input-container>
+
                 <md-button type="submit" class="md-raised md-primary" ng-click="submit()"
-                           ng-disabled="!loginForm.$valid">
-                    קדימה!
+                           ng-disabled="!signupForm.$valid">
+                    הלאה!
                 </md-button>
 
             </form>

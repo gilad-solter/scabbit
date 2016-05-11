@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', [])
+angular.module('scabbit.view1', [])
 
 .controller('View1Ctrl', ['$scope', function($scope) {
 

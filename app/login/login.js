@@ -4,11 +4,12 @@
 
 'use strict';
 
-angular.module('myApp.login', [])
+angular.module('scabbit.login', [])
+    .controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
 
-    .controller('LoginCtrl', ['$scope', function($scope) {
-
-        $scope.name='Sachbak Olam!';
-
+        $scope.submit = function(){
+            console.log('login:', $scope.email, $scope.password);
+            $location.path('/');
+        };
 
     }]);
